@@ -1,0 +1,19 @@
+{
+  "name": "webcomponent-demo",
+  "version": "1.0.0",
+  "description": "webcomponent demo using parcel",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "deepak vishwakarma",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "parcel": "^2.6.1"
+  }
+}
