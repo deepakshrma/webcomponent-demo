@@ -1,12 +1,8 @@
-class App extends HTMLElement {
-  async connectedCallback() {
-    this.attachShadow({ mode: "open" });
-    const name = this.getAttribute("name") ?? "John Doe";
-    this.shadowRoot.innerHTML = `
-      <style>.title { text-align: center; } </style>
-      <h1 class="title">Welcome ${name}</h1>
-    `;
-  }
-}
+import { register } from "./Components/BaseComponent";
+import PostComponent from "./components/Post";
+import UserComponent from "./Components/UserComponent";
+import App from "./pages/App";
 
-customElements.define("dv-app", App);
+register("dv-user", UserComponent);
+register("dv-post", PostComponent);
+register("dv-app", App);

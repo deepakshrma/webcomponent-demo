@@ -1,7 +1,4 @@
-body {
-  background-color: black;
-  color: #fff;
-}
-.title {
-  text-align: center;
+:root {
+  --dv-text-color: #333;
+  --dv-text-color-slate: #4e4e4e;
 }
