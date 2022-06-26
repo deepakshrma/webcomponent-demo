@@ -12,24 +12,26 @@ class Component extends HTMLElement {
   }
   #bindState() {
     const that = this;
+    let id;
     const handler = {
       get(target, prop) {
         return target[prop];
       },
       set(target, prop, value) {
         target[prop] = value;
-        that.#render({ ...target });
+        if (id) clearTimeout(id);
+        id = setTimeout(() => that._render({ ...target }), 0);
         return target;
       },
     };
-    this.state = new Proxy(this.#state, handler);
+    this.state = new Proxy(this._state, handler);
   }
 
   get props() {
-    const props = this.getAttributeNames().reduce((acc, name) => {
-      acc[name] = this.getAttribute(name);
-      return acc;
-    }, {});
+    let props = {};
+    for (let name of this.getAttributeNames()) {
+      props[name] = this.getAttribute(name);
+    }
     return props;
   }
   async onMount() {}
